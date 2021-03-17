@@ -21,3 +21,15 @@ class Wishlist extends Component {
 }
 
 export default Wishlist
+
+
+/*
+- Must have delete route(x) 
+- Needs to show wishlist collection
+- Needs a GET route
+- Get collection on page as list first then try to style afterwards
+- use :hover
+
+
+
+*/

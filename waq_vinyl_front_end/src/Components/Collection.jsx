@@ -20,3 +20,13 @@ class collection extends Component {
 }
 
 export default collection
+
+/*
+- Show my collection
+- use get route for that
+- we want to be able to delete(x) from this page
+- use delete route for that
+// * Update needs to be on single vinyl page 
+- Needs solid HTML structure 
+- use :hover
+*/
