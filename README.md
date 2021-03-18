@@ -78,23 +78,23 @@ The project tries to follow the coding style guide provided by AirBnb.
 
 ## User Stories
 
-Minimum Viable Product:
-“As a WAQ_Vinly User, I want to search for album’s to add”
-“As a WAQ_Vinly User, I want to search for my collection by artist ”
-“As a WAQ_Vinly User, I want view my collections”
-“As a WAQ_Vinly User, I want view my wishlist”
-“As a WAQ_Vinly User, I want add an album to my collections”
-“As a WAQ_Vinly User, I want add an album to my wishlist”
-“As a WAQ_Vinly User, I want edit an collections”
-“As a WAQ_Vinly User, I want edit an wishlist”
-“As a WAQ_Vinly User, I want to delete an album from my collection”
-“As a WAQ_Vinly User, I want to delete an album from my wishlist”
+### Minimum Viable Product:
+- “As a WAQ_Vinly User, I want to search for album’s to add”
+- “As a WAQ_Vinly User, I want to search for my collection by artist ”
+- “As a WAQ_Vinly User, I want view my collections”
+- “As a WAQ_Vinly User, I want view my wishlist”
+- “As a WAQ_Vinly User, I want add an album to my collections”
+- “As a WAQ_Vinly User, I want add an album to my wishlist”
+- “As a WAQ_Vinly User, I want edit an collections”
+- “As a WAQ_Vinly User, I want edit an wishlist”
+- “As a WAQ_Vinly User, I want to delete an album from my collection”
+- “As a WAQ_Vinly User, I want to delete an album from my wishlist”
 
-Stretch Goals:
-“As a WAQ_Vinly User, I want to see my friends collections” 
-“As a WAQ_Vinly User, I want to see my friends Wishlist”
-“As a WAQ_Vinly User, I want use the app across all my devices” - CSS
-“As a WAQ_Vinyl User, I will have a playlist made up for me based on what I have in my collection (1 or 2 songs from each record)”
+### Stretch Goals:
+- “As a WAQ_Vinly User, I want to see my friends collections” 
+- “As a WAQ_Vinly User, I want to see my friends Wishlist”
+- “As a WAQ_Vinly User, I want use the app across all my devices” - CSS
+- “As a WAQ_Vinyl User, I will have a playlist made up for me based on what I have in my collection (1 or 2 songs from each record)”
 
 ## Authors
 
