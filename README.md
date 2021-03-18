@@ -54,14 +54,18 @@ Dependencies - npm packages (back end)
 
 ## Built With
 
-React
-mongodb
-node.js
-express.js
-JavaScript
-bootstrap
-Heroku
-mongodb Atlas
+- React
+- mongodb
+- node.js
+- express.js
+- bcrypt
+- cors
+- dotenv
+- npm
+- JavaScript
+- bootstrap
+- Heroku
+- mongodb Atlas
 
 ## Code organization
 
