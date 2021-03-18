@@ -34,19 +34,19 @@ Our original plan was to dynamically add data from an outside API for artists an
 ## Install
 
 You can fork this repo and run from node. You will need to set up the .env variables.
-Dependencies - npm packages (back end)
- "dependencies": {
-   "bcrypt": "^5.0.1",
-   "cors": "^2.8.5",
-   "dotenv": "^8.2.0",
-   "express": "^4.17.1",
-   "express-session": "^1.17.1",
-   "mongoose": "^5.12.0"
- },
- "engines": {
-   "node": "14.15.4",
-   "npm": "6.14.10"
- }
+- Dependencies - npm packages (back end)
+ - "dependencies": {
+   - "bcrypt": "^5.0.1",
+   - "cors": "^2.8.5",
+   - "dotenv": "^8.2.0",
+   - "express": "^4.17.1",
+   - "express-session": "^1.17.1",
+   - "mongoose": "^5.12.0"
+ - },
+ - "engines": {
+   - "node": "14.15.4",
+   - "npm": "6.14.10"
+ - }
  
 ## Features
 
