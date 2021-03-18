@@ -6,7 +6,7 @@ This is an application that allows the user to search for albums, add them to a 
 
 ## Links
 
-- You can access the application here: https://whispering-everglades-63027.herokuapp.com/
+- You can access the WAQ_Vinyl Heroku Application here: https://whispering-everglades-63027.herokuapp.com/
 - You can access the Discogs API here: https://www.discogs.com/developers
 
 ## Future Work
