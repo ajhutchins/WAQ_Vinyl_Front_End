@@ -5,14 +5,38 @@ let baseURL = ''
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
-  baseURL = 'heroku backend here'
+  baseURL = 'https://whispering-everglades-63027.herokuapp.com'
 }
 
 
+
+
 class collection extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
+
+
+  // deleteCollection(id) {
+  //   console.log('deleting')
+  
+  //   fetch(baseURL + '/vinyl/' + id, {
+  //     method: 'DELETE',
+  //   }).then(res => res.json())
+  //   .then(resJson => {
+  
+  //   })
+  // }
+  
     render() {
         return(
             <div>
+              <h1>My Collection</h1>
+
+              <h2>{console.log(this.props.userCollect)} </h2>
 
             </div>
         )
