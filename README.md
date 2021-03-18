@@ -87,8 +87,8 @@ The project tries to follow the coding style guide provided by AirBnb.
 - “As a WAQ_Vinly User, I want view my wishlist”
 - “As a WAQ_Vinly User, I want add an album to my collections”
 - “As a WAQ_Vinly User, I want add an album to my wishlist”
-- “As a WAQ_Vinly User, I want edit an collections”
-- “As a WAQ_Vinly User, I want edit an wishlist”
+- “As a WAQ_Vinly User, I want edit my collection”
+- “As a WAQ_Vinly User, I want edit my wishlist”
 - “As a WAQ_Vinly User, I want to delete an album from my collection”
 - “As a WAQ_Vinly User, I want to delete an album from my wishlist”
 
