@@ -69,7 +69,7 @@ You can fork this repo and run from node. You will need to set up the .env varia
 
 The project tries to follow the coding style guide provided by AirBnb.
 
-## Design pattern and System design approach
+## Design Pattern and System Design Approach
 
 
 ## References
