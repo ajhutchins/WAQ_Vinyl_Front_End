@@ -60,17 +60,40 @@ class App extends Component {
     this.searchDiscogs(event);
   }
   
-  addVinylToCollection(vinyl) {
-    this.setState({
-      userCollection: [vinyl, ...this.state.userCollection],
-    })
-  }
+  // addVinylToCollection(vinyl) {
+  //   this.setState({
+  //     userCollection: [vinyl, ...this.state.userCollection],
+  //   })
+  //   console.log(vinyl)
+  //   fetch(baseURL + '/users/collection' + vinyl._id, {
+  //     method: 'PUT',
+  //     body: JSON.stringify({celebrated: !vinyl.celebrated}),
+  //     headers: {
+  //       'Content-Type' : 'application/json'
+  //     }
+  //   }).then(res => res.json())
+  //   .then(resJson => {
+  //        const copyUserCollection = [...this.state.userCollection]
+  //         const findIndex = this.state.userCollection.findIndex(vinyl => vinyl._id === resJson._id)
+  //         copyUserCollection[findIndex].celebrated = resJson.celebrated
+  //         this.setState({userCollection: copyUserCollection})
+  //   })
+  // }
   
   addVinylToWishlist(vinyl) {
     this.setState({
       userWishlist: [vinyl, ...this.state.userWishlist],
     })
   }
+
+  getUserCollection() {
+    fetch(baseURL + '/users/collection')
+      .then(data => { return data.json() }, err => console.log(err))
+      .then(parsedData => this.setState({ holidays: parsedData }), err => console.log(err))
+  }
+
+
+
 
   getCollection() {
     fetch(baseURL + '/users/collection')
@@ -82,8 +105,8 @@ class App extends Component {
 
   render() {
     return(
-      <div className='container'>
-        <h1>WAQ VINYL</h1>
+      <div>
+        <h1 className="app-title">WAQ VINYL</h1>
         <div className="users-nav-content-container">
         <NavBar getCollection={ () => this.getCollection() }/>
         <form className="discogs-search-form-container" onSubmit={this.handleSearchDiscogsSubmit}>
