@@ -12,7 +12,14 @@ class UserVinyl extends Component {
     constructor(props) {
         super(props)
             this.state = {
-                name: ''
+                artist: '',
+                title: '',
+                year: '',
+                genre: [],
+                cover_image: '',
+                label: [],
+                quantity: 0,
+                price: 0
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -35,7 +42,14 @@ class UserVinyl extends Component {
             .then(resJson => {
                 this.props.handleAddVinyl(resJson)
                 this.setState({
-                    name: ''
+                    artist: '',
+                    title: '',
+                    year: '',
+                    genre: [],
+                    cover_image: '',
+                    label: [],
+                    quantity: 0,
+                    price: 0
                 })
             }).catch (error => console.log({'Error': error}))
     }
