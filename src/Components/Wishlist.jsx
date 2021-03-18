@@ -5,7 +5,7 @@ let baseURL = ''
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:3003'
 } else {
-  baseURL = 'heroku backend here'
+  baseURL = 'https://whispering-everglades-63027.herokuapp.com'
 }
 
 
@@ -14,6 +14,7 @@ class Wishlist extends Component {
     render() {
         return(
             <div>
+              <h1>Wishlist</h1>
 
             </div>
         )

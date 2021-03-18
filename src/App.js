@@ -19,16 +19,19 @@ class App extends Component {
     super(props)
     this.state = {
       discogsSearchValue: '',
-      baseURL: 'https://api.discogs.com/database/search?q=',
+      discogsURL: 'https://api.discogs.com/database/search?q=',
       token: '&token=hLKyUdeGzviIupbdIpyGeAYPVXUFOSdPDKBonIQj',
       artistName: '',
       searchURL: '',
       userCollection: [],
       userWishlist: [],
+      collections: [],
+      baseURL: 'http://localhost:3003'
     }
     this.handleSearchDiscogsInputChange = this.handleSearchDiscogsInputChange.bind(this);
     this.handleSearchDiscogsSubmit = this.handleSearchDiscogsSubmit.bind(this);
     this.searchDiscogs = this.searchDiscogs.bind(this)
+    this.getCollection = this.getCollection.bind(this)
   }
 
   searchDiscogs (event) {
@@ -36,7 +39,7 @@ class App extends Component {
     console.log(this.state.discogsSearchValue)
     this.setState({
       answerHidden: false,
-      searchURL: ((this.state.baseURL) + (this.state.discogsSearchValue) + (this.state.token)) ,
+      searchURL: ((this.state.discogsURL) + (this.state.discogsSearchValue) + (this.state.token)) ,
     }, () => {
       fetch(this.state.searchURL)
         .then(response => {
@@ -92,12 +95,20 @@ class App extends Component {
 
 
 
+  getCollection() {
+    fetch(baseURL + '/users/collection')
+    .then(data => { return data.json()}, err => console.log(err))
+    .then(parsedData => this.setState({
+      collections: parsedData
+    }), err => console.log(err))
+  }
+
   render() {
     return(
       <div className='container'>
         <h1>WAQ VINYL</h1>
         <div className="users-nav-content-container">
-        <NavBar />
+        <NavBar getCollection={ () => this.getCollection() }/>
         <form className="discogs-search-form-container" onSubmit={this.handleSearchDiscogsSubmit}>
             <label>
               Name:
@@ -110,6 +121,14 @@ class App extends Component {
             addVinylToCollection={ (vinyl) => this.addVinylToCollection(vinyl) }
             addVinylToWishlist={ (vinyl) => this.addVinylToWishlist(vinyl) }
             vinyl={this.state.vinyl} 
+            />
+            : ''
+          }
+
+          {(this.state.data)
+            ? <Collection  
+            
+            userCollect={this.state.data} 
             />
             : ''
           }
