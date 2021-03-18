@@ -82,8 +82,8 @@ class App extends Component {
 
   render() {
     return(
-      <div className='container'>
-        <h1>WAQ VINYL</h1>
+      <div>
+        <h1 className="app-title">WAQ VINYL</h1>
         <div className="users-nav-content-container">
         <NavBar getCollection={ () => this.getCollection() }/>
         <form className="discogs-search-form-container" onSubmit={this.handleSearchDiscogsSubmit}>
