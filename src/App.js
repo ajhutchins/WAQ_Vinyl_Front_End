@@ -23,7 +23,7 @@ class App extends Component {
       token: '&token=hLKyUdeGzviIupbdIpyGeAYPVXUFOSdPDKBonIQj',
       artistName: '',
       searchURL: '',
-      userCollection: [],
+      // userCollection: [],
       userWishlist: [],
       collections: [],
       baseURL: 'http://localhost:3003',
@@ -143,7 +143,7 @@ getUserWishlist() {
             : ''
           }
           <Collection  userCollect={this.state.usersVinyls} />       
-          <button className="" onClick={this.getUserCollection} >getUserCollection</button>
+          {/* <button className="" onClick={this.getUserCollection} >getUserCollection</button> */}
           {/* <Wishlist userWishlist={this.state.userWishlist}  /> */}
           <UserVinyl />
 

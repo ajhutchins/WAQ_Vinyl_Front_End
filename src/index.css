@@ -83,7 +83,7 @@ img {
   padding: 3px;
 }
 
-.app-title, button, label, #result-h2 {
+.app-title, button, label, #result-h2, .my-collection-item-container {
   font-family: 'Caveat', cursive;
 }
 
@@ -139,7 +139,6 @@ li {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-<<<<<<< HEAD
 }
 
 .my-collection-item-container {
@@ -162,16 +161,8 @@ li {
 
 .album-name-container {
   font-weight: bold;
+  font-size: larger;
 }
-=======
-  font-family: 'Caveat', cursive;
-}
-
-img {
-  border-radius: 10px;
-  border: 2px solid rgb(49, 49, 49);
-}
-
 
 /* ================ */
 /* Button Generator referenced: https://www.bestcssbuttongenerator.com/#/3  */
@@ -202,5 +193,3 @@ img {
 	position:relative;
 	top:1px;
 }
-
->>>>>>> 07f32b967cf59e18a266429e886c75bb6ac2431d
