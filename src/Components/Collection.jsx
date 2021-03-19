@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import User_Vinyl from './User_Vinyl';
 let baseURL = ''
 
 if (process.env.NODE_ENV === 'development') {
@@ -7,9 +7,6 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseURL = 'https://whispering-everglades-63027.herokuapp.com'
 }
-
-
-
 
 class Collection extends Component {
   constructor(props) {
@@ -21,13 +18,11 @@ class Collection extends Component {
     }
   }
 
-
   componentDidMount() {
     this.getUserCollection()
   }
 
   getUserCollection() {
-    console.log(baseURL + '/users/collection')
     fetch(baseURL + '/users/collection')
       .then(response => {
         return response.json()
@@ -35,13 +30,11 @@ class Collection extends Component {
           userCollect: json,
         }),
         err => console.log(err))
-  console.log(this.state)
   }
 
     deleteCollection(id) {
     console.log('deleting')
     console.log(id)
-  
     fetch(baseURL + '/users/collection/' + id, {
       method: 'DELETE',
     }).then(res => res.json())
@@ -58,14 +51,12 @@ class Collection extends Component {
         return(
             <div>
               <h1>My Collection</h1>
-              <h2>{console.log( "UserCollection Found " + this.props.userCollect)} </h2>
-              <h2>{console.log( "UserCollection Found " + this.props.userCollect.username)} </h2>
             <ul>
               {this.props.userCollect.myCollection.map((value, index) => {
                 return(
                   <li className="discogs-return-result-item">
-                  <h2>Al: {this.props.userCollect.myCollection[index].title} </h2>
-                  <img src={this.props.userCollect.myCollection[index].cover_image}></img>
+                  <h2>Album: {this.props.userCollect.myCollection[index].title} </h2>
+                  <img src={this.props.userCollect.myCollection[index].cover_image} ></img>
                   <div className="delete-vinyl-from-user-collection-button"  onClick={this.deleteCollection(this.props.userCollect.myCollection[index]._id)}>X</div>
                   </li>
                 )
@@ -77,13 +68,3 @@ class Collection extends Component {
 }
 
 export default Collection
-
-/*
-- Show my collection
-- use get route for that
-- we want to be able to delete(x) from this page
-- use delete route for that
-// * Update needs to be on single vinyl page 
-- Needs solid HTML structure 
-- use :hover
-*/

@@ -13,8 +13,6 @@ if (process.env.NODE_ENV === 'development') {
   baseURL = 'https://whispering-everglades-63027.herokuapp.com'
 }
 
-console.log('current base URL:', baseURL)
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -45,7 +43,6 @@ class App extends Component {
 
   searchDiscogs (event) {
     event.preventDefault()
-    console.log(this.state.discogsSearchValue)
     this.setState({
       answerHidden: false,
       searchURL: ((this.state.discogsURL) + (this.state.discogsSearchValue) + (this.state.token)) ,
@@ -69,25 +66,26 @@ class App extends Component {
     this.searchDiscogs(event);
   }
   
-  // addVinylToCollection(vinyl) {
-  //   this.setState({
-  //     userCollection: [vinyl, ...this.state.userCollection],
-  //   })
-  //   console.log(vinyl)
-  //   fetch(baseURL + '/users/collection' + vinyl._id, {
-  //     method: 'PUT',
-  //     body: JSON.stringify({celebrated: !vinyl.celebrated}),
-  //     headers: {
-  //       'Content-Type' : 'application/json'
-  //     }
-  //   }).then(res => res.json())
-  //   .then(resJson => {
-  //        const copyUserCollection = [...this.state.userCollection]
-  //         const findIndex = this.state.userCollection.findIndex(vinyl => vinyl._id === resJson._id)
-  //         copyUserCollection[findIndex].celebrated = resJson.celebrated
-  //         this.setState({userCollection: copyUserCollection})
-  //   })
-  // }
+  addVinylToCollection(vinyl) {
+    console.log(`Found Vinly to add ${vinyl}`)
+    // this.setState({
+    //   userCollection: [vinyl, ...this.state.userCollection],
+    // })
+    console.log(vinyl)
+    fetch(baseURL + '/vinyl/' + vinyl._id, {
+      method: 'POST',
+      body: JSON.stringify({}),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    }).then(res => res.json())
+    .then(resJson => {
+         const copyUserCollection = [...this.state.userCollection]
+          const findIndex = this.state.userCollection.findIndex(vinyl => vinyl._id === resJson._id)
+          copyUserCollection[findIndex].celebrated = resJson.celebrated
+          this.setState({userCollection: copyUserCollection})
+    })
+  }
   
   addVinylToWishlist(vinyl) {
     this.setState({
@@ -112,7 +110,6 @@ componentDidMount() {
 // }
 
 getUserCollection() {
-  console.log(baseURL + '/users/collection')
   fetch(baseURL + '/users/collection')
     .then(response => {
       return response.json()
@@ -120,7 +117,7 @@ getUserCollection() {
         usersVinyls: json,
       }),
       err => console.log(err))
-console.log(this.state)
+
 }
 
 
@@ -148,6 +145,7 @@ console.log(this.state)
           <Collection  userCollect={this.state.usersVinyls} />
           </div>
           <button className="" onClick={this.getUserCollection} >getUserCollection</button>
+          
       </div>
     )
   }
