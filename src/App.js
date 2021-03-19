@@ -128,8 +128,7 @@ getUserWishlist() {
         <NavBar getCollection={ () => this.getCollection() }/>
         <div className="components-container">
         <form className="discogs-search-form-container" onSubmit={this.handleSearchDiscogsSubmit}>
-            <label>
-              <h2>Name:</h2>
+            <label id="search-main">
               <input type="text" value={this.state.discogsSearchValue} onChange={this.handleSearchDiscogsInputChange} />
             </label>
             <button className="search-button" onClick={this.searchDiscogs} >Search</button>
