@@ -3,6 +3,7 @@ import Wishlist from './Components/Wishlist'
 import Collection from './Components/Collection'
 import DiscogsSearchResults from './Components/DiscogsSearchResults';
 import NavBar from './Components/NavBar';
+import UserVinyl from './Components/UserVinyl';
 
 
 let baseURL = ''
@@ -67,23 +68,10 @@ class App extends Component {
   }
   
   addVinylToCollection(vinyl) {
-    console.log(`Found Vinly to add ${vinyl}`)
-    // this.setState({
-    //   userCollection: [vinyl, ...this.state.userCollection],
-    // })
-    console.log(vinyl)
-    fetch(baseURL + '/vinyl/' + vinyl._id, {
-      method: 'POST',
-      body: JSON.stringify({}),
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-    }).then(res => res.json())
-    .then(resJson => {
-         const copyUserCollection = [...this.state.userCollection]
-          const findIndex = this.state.userCollection.findIndex(vinyl => vinyl._id === resJson._id)
-          copyUserCollection[findIndex].celebrated = resJson.celebrated
-          this.setState({userCollection: copyUserCollection})
+    const copyCollections = [...this.state.collections]
+    copyCollections.unshift(vinyl)
+    this.setState({
+      collections: copyCollections
     })
   }
   
@@ -100,6 +88,7 @@ class App extends Component {
 
 componentDidMount() {
   this.getUserCollection()
+  this.getUserWishlist()
 }
 
 // getUserCollection() {
@@ -120,10 +109,20 @@ getUserCollection() {
 
 }
 
+getUserWishlist() {
+  fetch(baseURL + '/users/wishlist')
+    .then(response => {
+      return response.json()
+    }).then(json => this.setState({
+        userWishlist: json,
+      }),
+      err => console.log(err))
+
+}
 
   render() {
     return(
-      <div>
+      <div className="app-container">
         <h1 className="app-title">WAQ VINYL</h1>
         <div className="users-nav-content-container">
         <NavBar getCollection={ () => this.getCollection() }/>
@@ -143,9 +142,11 @@ getUserCollection() {
             />
             : ''
           }
-          <Collection  userCollect={this.state.usersVinyls} />
-          
+          <Collection  userCollect={this.state.usersVinyls} />       
           <button className="" onClick={this.getUserCollection} >getUserCollection</button>
+          {/* <Wishlist userWishlist={this.state.userWishlist}  /> */}
+          <UserVinyl />
+
           </div>
           
       </div>

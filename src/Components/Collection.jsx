@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import User_Vinyl from './User_Vinyl';
+import UserVinyl from './UserVinyl';
 let baseURL = ''
 
 if (process.env.NODE_ENV === 'development') {
@@ -53,11 +53,12 @@ class Collection extends Component {
               <h1>My Collection</h1>
             <ul>
               {this.props.userCollect.myCollection.map((value, index) => {
+                console.log(this.props.userCollect.myCollection)
                 return(
-                  <li className="discogs-return-result-item">
-                  <h2>Album: {this.props.userCollect.myCollection[index].title} </h2>
+                  <li className="my-collection-item-container">
+                  <h2 className="album-name-container">{this.props.userCollect.myCollection[index].title} </h2>
                   <img src={this.props.userCollect.myCollection[index].cover_image} ></img>
-                  <div className="delete-vinyl-from-user-collection-button"  onClick={this.deleteCollection(this.props.userCollect.myCollection[index]._id)}>X</div>
+                  {/* <div className="delete-vinyl-from-user-collection-button"  onClick={this.deleteCollection(this.props.userCollect.myCollection[index]._id)}>X</div> */}
                   </li>
                 )
               })}

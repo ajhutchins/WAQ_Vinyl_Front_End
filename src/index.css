@@ -13,6 +13,13 @@ code {
     monospace;
 }
 
+img {
+  vertical-align: middle !important;
+  border-style: none !important;
+  width: 12vw !important;
+  border: solid  black 5px !important;
+  box-shadow: 10px 5px 5px rgb(255, 98, 0);
+}
 .nav-bar-container {
   display: flex;
   flex-direction: column;
@@ -32,7 +39,10 @@ code {
 
 .discogs-search-form-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  /* align-content: center; */
+  /* align-items: center; */
+  justify-content: center;
 
 }
 
@@ -129,6 +139,31 @@ li {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+<<<<<<< HEAD
+}
+
+.my-collection-item-container {
+  
+  width: 15%;
+
+  display: inline-block;
+  flex-direction: row;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
+  text-align: center;
+  border-radius: 13px;
+}
+
+.components-container {
+  width: 85vw
+}
+
+.album-name-container {
+  font-weight: bold;
+}
+=======
   font-family: 'Caveat', cursive;
 }
 
@@ -168,3 +203,4 @@ img {
 	top:1px;
 }
 
+>>>>>>> 07f32b967cf59e18a266429e886c75bb6ac2431d
