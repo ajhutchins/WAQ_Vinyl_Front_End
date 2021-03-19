@@ -130,7 +130,7 @@ getUserCollection() {
         <div className="components-container">
         <form className="discogs-search-form-container" onSubmit={this.handleSearchDiscogsSubmit}>
             <label>
-              Name:
+              <h2>Name:</h2>
               <input type="text" value={this.state.discogsSearchValue} onChange={this.handleSearchDiscogsInputChange} />
             </label>
             <button className="search-button" onClick={this.searchDiscogs} >Search</button>
