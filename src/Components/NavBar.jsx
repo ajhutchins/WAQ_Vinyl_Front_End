@@ -7,8 +7,6 @@ class NavBar extends Component {
       <button className="search-bar-button">Search</button>
       <button className="vinyl-style-button" onClick={this.getUserCollection}>My Collection</button>
       <button className="vinyl-style-button">Wishlist</button>
-      <button>Login</button>
-      <button>Logout</button>
       </div>
     )
   }

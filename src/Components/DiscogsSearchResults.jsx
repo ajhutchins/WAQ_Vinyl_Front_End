@@ -75,19 +75,8 @@ class DiscogsSearchResults extends Component {
   render () {
     return  (
       <div className="discogs-return-results-container">
-<<<<<<< HEAD
-        <h2>Search Results</h2>
-
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name"></label>
-          <input type="text" id="name" name="name" onChange={this.handleChange} value={this.state.name} placeholder="add a holiday"/>
-          <input type="submit" value="Add a Reason to Celebrate"/>
-        </form>
-
-
-=======
         <h2 id="result-h2-search">Search Results</h2>
->>>>>>> 07f32b967cf59e18a266429e886c75bb6ac2431d
+
         <ul>
         {this.props.vinyl.results.map((value, index) => {
           return(
@@ -101,13 +90,8 @@ class DiscogsSearchResults extends Component {
             <h2 id="result-h2">Country: {this.props.vinyl.results[index].country} </h2>
             <h2 id="result-h2">Year: {this.props.vinyl.results[index].year} </h2>
             <div className="search-result-buttons">
-<<<<<<< HEAD
-              <button onClick={ () => { this.handleSubmit(this.props.vinyl.results[index]) } } >Add to My Collection</button>
-              <button onClick={ () => { this.props.addVinylToWishlist(this.props.vinyl) } } >Add to Wishlist</button>
-=======
-              <button id="search-result-collection-button" onClick={ () => { this.props.addVinylToCollection(this.props.vinyl) } } >Add to My Collection</button>
+              <button id="search-result-collection-button" onClick={ () => { this.handleSubmit(this.props.vinyl.results[index]) } } >Add to My Collection</button>
               <button id="search-result-wishlist-button" onClick={ () => { this.props.addVinylToWishlist(this.props.vinyl) } } >Add to Wishlist</button>
->>>>>>> 07f32b967cf59e18a266429e886c75bb6ac2431d
             </div>
             </li>
           )
