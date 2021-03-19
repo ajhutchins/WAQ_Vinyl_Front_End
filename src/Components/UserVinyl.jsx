@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class User_Vinyl extends Component {
+class UserVinyl extends Component {
   render () {
     return  (
       <div className="vinyl-details-container">  
@@ -10,5 +10,5 @@ class User_Vinyl extends Component {
   }
 }
 
-export default User_Vinyl;
+export default UserVinyl;
 

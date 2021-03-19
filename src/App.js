@@ -3,7 +3,7 @@ import Wishlist from './Components/Wishlist'
 import Collection from './Components/Collection'
 import DiscogsSearchResults from './Components/DiscogsSearchResults';
 import NavBar from './Components/NavBar';
-import User_Vinyl from './Components/User_Vinyl';
+import UserVinyl from './Components/UserVinyl';
 
 
 let baseURL = ''
@@ -88,6 +88,7 @@ class App extends Component {
 
 componentDidMount() {
   this.getUserCollection()
+  this.getUserWishlist()
 }
 
 // getUserCollection() {
@@ -108,10 +109,20 @@ getUserCollection() {
 
 }
 
+getUserWishlist() {
+  fetch(baseURL + '/users/wishlist')
+    .then(response => {
+      return response.json()
+    }).then(json => this.setState({
+        userWishlist: json,
+      }),
+      err => console.log(err))
+
+}
 
   render() {
     return(
-      <div>
+      <div className="app-container">
         <h1 className="app-title">WAQ VINYL</h1>
         <div className="users-nav-content-container">
         <NavBar getCollection={ () => this.getCollection() }/>
@@ -131,11 +142,10 @@ getUserCollection() {
             />
             : ''
           }
-          <Collection  userCollect={this.state.usersVinyls} />
-          
+          <Collection  userCollect={this.state.usersVinyls} />       
           <button className="" onClick={this.getUserCollection} >getUserCollection</button>
-          <Wishlist />
-          <User_Vinyl />
+          {/* <Wishlist userWishlist={this.state.userWishlist}  /> */}
+          <UserVinyl />
 
           </div>
           

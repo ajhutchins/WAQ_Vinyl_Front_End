@@ -26,7 +26,7 @@ class DiscogsSearchResults extends Component {
 
 
         title: event.title,
-        cover_image: event.thumb      
+        cover_image: event.cover_image      
       
       }),
       headers: {
@@ -62,7 +62,7 @@ class DiscogsSearchResults extends Component {
     console.log(vinyl._id)
     fetch(this.state.baseURL  + '/users/collection/' + vinyl._id, {
       method: 'PUT',
-      body: JSON.stringify(),
+      body: JSON.stringify(vinyl),
       headers: {
         'Content-Type' : 'application/json'
       }
