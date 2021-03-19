@@ -40,8 +40,8 @@ class Collection extends Component {
     }).then(res => res.json())
     .then(res => {
       console.log(this.state.userCollect);
-      const copyUserCollect = [...this.state.userCollect];
-      const findIndex = this.state.userCollect.findIndex(vinyl => vinyl._id === id);
+      const copyUserCollect = [...this.state.userCollect.myCollection];
+      const findIndex = this.state.userCollect.myCollection.findIndex(vinyl => vinyl._id === id);
       copyUserCollect.splice(findIndex, 1);
       this.setState({userCollect: copyUserCollect});
     })
@@ -58,7 +58,7 @@ class Collection extends Component {
                   <li className="my-collection-item-container">
                   <h2 className="album-name-container">{this.props.userCollect.myCollection[index].title} </h2>
                   <img src={this.props.userCollect.myCollection[index].cover_image} ></img>
-                  {/* <div className="delete-vinyl-from-user-collection-button"  onClick={this.deleteCollection(this.props.userCollect.myCollection[index]._id)}>X</div> */}
+                  <div className="delete-vinyl-from-user-collection-button"  onClick = {()=>this.deleteCollection(this.props.userCollect.myCollection[index]._id)}>X</div>
                   </li>
                 )
               })}
