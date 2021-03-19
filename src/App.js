@@ -3,6 +3,7 @@ import Wishlist from './Components/Wishlist'
 import Collection from './Components/Collection'
 import DiscogsSearchResults from './Components/DiscogsSearchResults';
 import NavBar from './Components/NavBar';
+import User_Vinyl from './Components/User_Vinyl';
 
 
 let baseURL = ''
@@ -67,23 +68,10 @@ class App extends Component {
   }
   
   addVinylToCollection(vinyl) {
-    console.log(`Found Vinly to add ${vinyl}`)
-    // this.setState({
-    //   userCollection: [vinyl, ...this.state.userCollection],
-    // })
-    console.log(vinyl)
-    fetch(baseURL + '/vinyl/' + vinyl._id, {
-      method: 'POST',
-      body: JSON.stringify({}),
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-    }).then(res => res.json())
-    .then(resJson => {
-         const copyUserCollection = [...this.state.userCollection]
-          const findIndex = this.state.userCollection.findIndex(vinyl => vinyl._id === resJson._id)
-          copyUserCollection[findIndex].celebrated = resJson.celebrated
-          this.setState({userCollection: copyUserCollection})
+    const copyCollections = [...this.state.collections]
+    copyCollections.unshift(vinyl)
+    this.setState({
+      collections: copyCollections
     })
   }
   
@@ -146,6 +134,9 @@ getUserCollection() {
           <Collection  userCollect={this.state.usersVinyls} />
           
           <button className="" onClick={this.getUserCollection} >getUserCollection</button>
+          <Wishlist />
+          <User_Vinyl />
+
           </div>
           
       </div>

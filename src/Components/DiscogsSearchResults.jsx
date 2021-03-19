@@ -9,33 +9,81 @@ class DiscogsSearchResults extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.getVinylLastInserted = this.getVinylLastInserted.bind(this)
+    this.addToUsersCollection = this.addToUsersCollection.bind(this)
   }
 
-    handleChange(event) {
-      this.setState({ [event.currentTarget.id]: event.currentTarget.value})
-    }
-  
-    handleSubmit (event) {
-      event.preventDefault()
-      fetch(this.state.baseURL + '/vinyl/', {
-        method: 'POST',
-        body: JSON.stringify({name: this.state.name}),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then (res => res.json())
-        .then (resJson => {
-          this.props.addVinylToCollection(resJson)
-          this.setState({
-            name: ''
-          })
-      }).catch (error => console.error({'Error': error}))
-    }
+  handleChange(event) {
+    this.setState({ [event.currentTarget.id]: event.currentTarget.value})
+    console.log(event.currentTarget.value)
+  }
+
+  handleSubmit (event) {
+    // event.preventDefault()
+    fetch(this.state.baseURL + '/vinyl/', {
+      method: 'POST',
+      body: JSON.stringify({
+
+
+        title: event.title,
+        cover_image: event.thumb      
+      
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then (res => res.json())
+      .then (resJson => {
+        this.props.addVinylToCollection(resJson)
+        this.getVinylLastInserted() 
+        this.setState({
+          name: ''
+        })
+    }).catch (error => console.error({'Error': error}))    
+  }
+
+  getVinylLastInserted() {
+    fetch(this.state.baseURL + '/vinyl/')
+      .then(response => {
+        return response.json()   
+      }).then(json => {    
+        this.setState({
+        usersVinyls: json,
+      })
+
+      this.addToUsersCollection(this.state.usersVinyls[this.state.usersVinyls.length -1])  
+    },
+      err => console.log(err))
+}
+
+  addToUsersCollection = (vinyl) => {
+    console.log(vinyl)
+    console.log(vinyl.title)
+    console.log(vinyl._id)
+    fetch(this.state.baseURL  + '/users/collection/' + vinyl._id, {
+      method: 'PUT',
+      body: JSON.stringify(),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    }).then(res => res.json())
+    .then(resJson => {
+
+    })
+  }
   
   render () {
     return  (
       <div className="discogs-return-results-container">
         <h2>Search Results</h2>
+
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="name"></label>
+          <input type="text" id="name" name="name" onChange={this.handleChange} value={this.state.name} placeholder="add a holiday"/>
+          <input type="submit" value="Add a Reason to Celebrate"/>
+        </form>
+
+
         <ul>
         {this.props.vinyl.results.map((value, index) => {
           return(
@@ -49,7 +97,7 @@ class DiscogsSearchResults extends Component {
             <h2>Country: {this.props.vinyl.results[index].country} </h2>
             <h2>Year: {this.props.vinyl.results[index].year} </h2>
             <div className="search-result-buttons">
-              <button onClick={ () => { this.props.addVinylToCollection(this.props.vinyl) } } >Add to My Collection</button>
+              <button onClick={ () => { this.handleSubmit(this.props.vinyl.results[index]) } } >Add to My Collection</button>
               <button onClick={ () => { this.props.addVinylToWishlist(this.props.vinyl) } } >Add to Wishlist</button>
             </div>
             </li>
