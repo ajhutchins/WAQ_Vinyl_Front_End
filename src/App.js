@@ -4,6 +4,7 @@ import Collection from './Components/Collection'
 import DiscogsSearchResults from './Components/DiscogsSearchResults';
 import NavBar from './Components/NavBar';
 
+
 let baseURL = ''
 
 if (process.env.NODE_ENV === 'development') {
@@ -134,7 +135,7 @@ console.log(this.state)
               Name:
               <input type="text" value={this.state.discogsSearchValue} onChange={this.handleSearchDiscogsInputChange} />
             </label>
-            <button className="" onClick={this.searchDiscogs} >Search</button>
+            <button className="search-button" onClick={this.searchDiscogs} >Search</button>
       </form>
       {(this.state.vinyl)
             ? <DiscogsSearchResults 
