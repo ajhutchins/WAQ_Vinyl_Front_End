@@ -5,7 +5,7 @@ class NavBar extends Component {
     return  (
       <div className="nav-bar-container">  
       <button>Search</button>
-      <button className="vinyl-style-button" onClick={this.getCollection}>My Collection</button>
+      <button className="vinyl-style-button" onClick={this.getUserCollection}>My Collection</button>
       <button className="vinyl-style-button">Wishlist</button>
       <button>Login</button>
       <button>Logout</button>
