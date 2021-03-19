@@ -8,6 +8,8 @@ This is an application that allows the user to search for albums, add them to a 
 
 - You can access the WAQ_Vinyl Heroku Application here: https://whispering-everglades-63027.herokuapp.com/
 - You can access the Discogs API here: https://www.discogs.com/developers
+- You can access our backend API here: https://github.com/ajhutchins/WAQ_Vinyl
+- You can access our backend Heroku directory here: https://dashboard.heroku.com/apps/murmuring-mountain-39567
 
 ## Future Work
 
