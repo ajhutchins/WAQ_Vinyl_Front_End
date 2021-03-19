@@ -37,7 +37,10 @@ img {
 
 .discogs-search-form-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  /* align-content: center; */
+  /* align-items: center; */
+  justify-content: center;
 
 }
 
