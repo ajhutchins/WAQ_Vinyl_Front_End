@@ -57,6 +57,11 @@ code {
   color: #D8E7FF;
 }
 
+.app-title {
+  text-align: center;
+  font-size: xxx-large;
+}
+
 .app-title, button, label {
   font-family: 'Caveat', cursive;
 }
@@ -65,3 +70,27 @@ code {
   height: 25px;
   padding: 0 10px;
 } */
+
+/*
+TO-DO:
+- Fix font sizes (we're off the rails)
+- Fix width of Search Results
+    - Size down
+- Move the name 'Search Bar" ABOVE "Search Results" (HTML CHANGE)
+- 
+
+*/
+
+/* ================ */
+/*   Search Results     */
+/* ================ */
+
+h2 {
+  font-size: large;
+}
+
+.search-result-buttons {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
