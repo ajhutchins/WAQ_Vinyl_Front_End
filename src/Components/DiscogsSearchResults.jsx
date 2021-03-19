@@ -35,22 +35,22 @@ class DiscogsSearchResults extends Component {
   render () {
     return  (
       <div className="discogs-return-results-container">
-        <h2>Search Results</h2>
+        <h2 id="result-h2-search">Search Results</h2>
         <ul>
         {this.props.vinyl.results.map((value, index) => {
           return(
             <li className="discogs-return-result-item">
             <img src={this.props.vinyl.results[index].thumb}></img>
-            <h2>Artist: {this.props.vinyl.results[0].title} </h2>
-            <h2>Album Title: {this.props.vinyl.results[index].title} </h2>
-            <h2>Format: {this.props.vinyl.results[index].format} </h2>
-            <h2>Genre: {this.props.vinyl.results[index].genre} </h2>
-            <h2>Label: {this.props.vinyl.results[index].label} </h2>
-            <h2>Country: {this.props.vinyl.results[index].country} </h2>
-            <h2>Year: {this.props.vinyl.results[index].year} </h2>
+            <h2 id="result-h2">Artist: {this.props.vinyl.results[0].title} </h2>
+            <h2 id="result-h2">Album Title: {this.props.vinyl.results[index].title} </h2>
+            <h2 id="result-h2">Format: {this.props.vinyl.results[index].format} </h2>
+            <h2 id="result-h2">Genre: {this.props.vinyl.results[index].genre} </h2>
+            <h2 id="result-h2">Label: {this.props.vinyl.results[index].label} </h2>
+            <h2 id="result-h2">Country: {this.props.vinyl.results[index].country} </h2>
+            <h2 id="result-h2">Year: {this.props.vinyl.results[index].year} </h2>
             <div className="search-result-buttons">
-              <button onClick={ () => { this.props.addVinylToCollection(this.props.vinyl) } } >Add to My Collection</button>
-              <button onClick={ () => { this.props.addVinylToWishlist(this.props.vinyl) } } >Add to Wishlist</button>
+              <button id="search-result-collection-button" onClick={ () => { this.props.addVinylToCollection(this.props.vinyl) } } >Add to My Collection</button>
+              <button id="search-result-wishlist-button" onClick={ () => { this.props.addVinylToWishlist(this.props.vinyl) } } >Add to Wishlist</button>
             </div>
             </li>
           )

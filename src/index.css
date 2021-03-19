@@ -19,13 +19,15 @@ code {
   border: solid 1px;
   background-color: #e98269;
   padding: 1%;
+  border-radius: 16px;
 }
 
 .users-nav-content-container{
   display: flex;
-  border: solid 1px;
+  border: 2px solid rgb(71, 71, 71);
+  border-width: initial;
   padding: 1%;
-
+  border-radius: 16px;
 }
 
 .discogs-search-form-container {
@@ -47,6 +49,8 @@ code {
   padding: 2%;
   list-style: none;
   border-radius: 20px;
+  max-width: 66%;
+  margin: 0 auto;
 }
 
 .vinyl-style-button {
@@ -55,15 +59,47 @@ code {
   border-radius: 50%;
   background-color: #000000;
   color: #D8E7FF;
+  font-size: 18px;
 }
 
 .app-title {
   text-align: center;
   font-size: xxx-large;
+  border: 2px solid rgb(71, 71, 71);
+  border-width: initial;
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 3px;
 }
 
-.app-title, button, label {
+.app-title, button, label, #result-h2 {
   font-family: 'Caveat', cursive;
+}
+
+input {
+  width: 200px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  height: 30px;
+  padding: 1px 24px 2px 30px;
+  outline: 0;
+  background-color: #fdead0;
+}
+
+h1 {
+  font-size: xx-large;
+  font-family: 'Caveat', cursive;
+}
+
+#result-h2-search {
+  margin: 0 auto;
+  padding: 20px;
+  font-size: xxx-large;
+  font-family: 'Caveat', cursive;
+  border: 2px solid rgb(71, 71, 71);
+  border-width: initial;
+  border-radius: 10px;
 }
 
 /* button, label {
@@ -85,7 +121,7 @@ TO-DO:
 /*   Search Results     */
 /* ================ */
 
-h2 {
+li {
   font-size: large;
 }
 
@@ -93,4 +129,42 @@ h2 {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  font-family: 'Caveat', cursive;
 }
+
+img {
+  border-radius: 10px;
+  border: 2px solid rgb(49, 49, 49);
+}
+
+
+/* ================ */
+/* Button Generator referenced: https://www.bestcssbuttongenerator.com/#/3  */
+/* ================ */
+
+.search-button, .search-bar-button, #search-result-collection-button, #search-result-wishlist-button {
+	box-shadow:inset 0px -3px 8px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:7px;
+	border:2px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:20px;
+	font-weight:bold;
+	padding:4px 25px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+
+.search-button:hover, .search-bar-button:hover, .search-result-buttons:hover, #search-result-wishlist-button:hover {
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
+}
+
+.search-button:active, .search-bar-button:active, .search-result-buttons:active, #search-result-wishlist-button:active {
+	position:relative;
+	top:1px;
+}
+
