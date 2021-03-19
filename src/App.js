@@ -127,13 +127,14 @@ getUserCollection() {
         <h1 className="app-title">WAQ VINYL</h1>
         <div className="users-nav-content-container">
         <NavBar getCollection={ () => this.getCollection() }/>
+        <div className="components-container">
         <form className="discogs-search-form-container" onSubmit={this.handleSearchDiscogsSubmit}>
             <label>
               Name:
               <input type="text" value={this.state.discogsSearchValue} onChange={this.handleSearchDiscogsInputChange} />
             </label>
             <button className="search-button" onClick={this.searchDiscogs} >Search</button>
-      </form>
+       </form>
       {(this.state.vinyl)
             ? <DiscogsSearchResults 
             addVinylToCollection={ (vinyl) => this.addVinylToCollection(vinyl) }
@@ -143,9 +144,11 @@ getUserCollection() {
             : ''
           }
           <Collection  userCollect={this.state.usersVinyls} />
-          </div>
-          <button className="" onClick={this.getUserCollection} >getUserCollection</button>
           
+          <button className="" onClick={this.getUserCollection} >getUserCollection</button>
+          </div>
+          
+      </div>
       </div>
     )
   }
