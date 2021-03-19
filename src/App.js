@@ -27,13 +27,21 @@ class App extends Component {
       userCollection: [],
       userWishlist: [],
       collections: [],
-      baseURL: 'http://localhost:3003'
+      baseURL: 'http://localhost:3003',
+      usersVinyls: {
+        myCollection: []
+      }
+
     }
     this.handleSearchDiscogsInputChange = this.handleSearchDiscogsInputChange.bind(this);
     this.handleSearchDiscogsSubmit = this.handleSearchDiscogsSubmit.bind(this);
     this.searchDiscogs = this.searchDiscogs.bind(this)
-    this.getCollection = this.getCollection.bind(this)
+    this.getUserCollection = this.getUserCollection.bind(this)
   }
+
+////////////////////
+//  DiscogsSearchResults
+///////////////////
 
   searchDiscogs (event) {
     event.preventDefault()
@@ -87,22 +95,34 @@ class App extends Component {
     })
   }
 
-  getUserCollection() {
-    fetch(baseURL + '/users/collection')
-      .then(data => { return data.json() }, err => console.log(err))
-      .then(parsedData => this.setState({ holidays: parsedData }), err => console.log(err))
-  }
 
+////////////////////
+// Collections
+///////////////////
 
+componentDidMount() {
+  this.getUserCollection()
+}
 
+// getUserCollection() {
+//   console.log(baseURL + '/users/collection')
+//   fetch(baseURL + '/users/collection')
+//   .then(data => { return data.json() }, err => console.log(err))
+//   .then(parsedData => this.setState({ userCollection: parsedData }), err => console.log(err))
+// }
 
-  getCollection() {
-    fetch(baseURL + '/users/collection')
-    .then(data => { return data.json()}, err => console.log(err))
-    .then(parsedData => this.setState({
-      collections: parsedData
-    }), err => console.log(err))
-  }
+getUserCollection() {
+  console.log(baseURL + '/users/collection')
+  fetch(baseURL + '/users/collection')
+    .then(response => {
+      return response.json()
+    }).then(json => this.setState({
+        usersVinyls: json,
+      }),
+      err => console.log(err))
+console.log(this.state)
+}
+
 
   render() {
     return(
@@ -125,15 +145,9 @@ class App extends Component {
             />
             : ''
           }
-
-          {(this.state.data)
-            ? <Collection  
-            
-            userCollect={this.state.data} 
-            />
-            : ''
-          }
+          <Collection  userCollect={this.state.usersVinyls} />
           </div>
+          <button className="" onClick={this.getUserCollection} >getUserCollection</button>
       </div>
     )
   }
